@@ -1,7 +1,7 @@
 const PHOTOS_COUNT = 25;
-const DESCRIPTION = ['как-то так', 'ни то ни се', 'не понятно'];
-const MESSAGE = ['Всё отлично!', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают.', 'Как можно было поймать такой неудачный момент?!'];
-const USER_NAME = ['Иван', 'Лина', 'Потап', 'Ирэн', 'Михон', 'Кузмич', 'Димон'];
+const DESCRIPTIONS = ['как-то так', 'ни то ни се', 'не понятно'];
+const MESSAGES = ['Всё отлично!', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают.', 'Как можно было поймать такой неудачный момент?!'];
+const USER_NAMES = ['Иван', 'Лина', 'Потап', 'Ирэн', 'Михон', 'Кузмич', 'Димон'];
 
 const getRandomNumber = (min, max) => {
   if (min < 0) {
@@ -16,23 +16,23 @@ const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-function addZero(num) {
+const addZero = (num) => {
   if (num < 10) {
     num = `0${num}`;
   }
   return num;
-}
+};
 const getRandomArrayElement = (elements) => elements[getRandomNumber(0, elements.length - 1)];
 
-function generateComment(id) {
+const generateComment =(id) => {
   const avaNumb = getRandomNumber(1, 6);
   return {
     id,
     avatar: `img/avatar-${addZero(avaNumb)}.svg`,
-    message: getRandomArrayElement(MESSAGE),
-    name: getRandomArrayElement(USER_NAME),
+    message: getRandomArrayElement(MESSAGES),
+    name: getRandomArrayElement(USER_NAMES),
   };
-}
+};
 
 const generateComments = () => {
   const comments = [];
@@ -46,7 +46,7 @@ const generatePhoto = (id) => {
   return {
     id,
     url: `photos/${addZero(fotoNumb)}.jpg,`,
-    description: getRandomArrayElement(DESCRIPTION),
+    description: getRandomArrayElement(DESCRIPTIONS),
     likes: getRandomNumber(15, 250),
     comments: generateComments(),
   };
