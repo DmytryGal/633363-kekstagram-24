@@ -38,8 +38,8 @@ const generatePhotos = () => {
   const photos = [];
   for (let index = 1; index <= PHOTOS_COUNT; index++) {
     photos.push(generatePhoto(index));
-    return photos;
   }
+  return photos;
 };
 
 export {generatePhotos};
