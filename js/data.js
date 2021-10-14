@@ -41,9 +41,5 @@ const generatePhotos = () => {
     return photos;
   }
 };
-const publicPhotos = generatePhotos();
-// eslint-disable-next-line no-console
-console.log(publicPhotos);
 
-
-export {getRandomArrayElement, generateComment, generateComments, generatePhoto, generatePhotos, publicPhotos};
+export {generatePhotos};

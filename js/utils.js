@@ -26,6 +26,5 @@ const getCompareStrings = (myString, resonString) => {
     return false;
   }
 };
-// eslint-disable-next-line no-console
-console.log(getCompareStrings);
-export{getRandomNumber, addZero};
+
+export{getRandomNumber, addZero, getCompareStrings};
