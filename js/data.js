@@ -1,4 +1,4 @@
-import {getRandomNumber, addZero} from './utils.js';
+import {getRandomNumber} from './utils.js';
 
 const PHOTOS_COUNT = 25;
 const DESCRIPTIONS = ['как-то так', 'ни то ни се', 'не понятно'];
@@ -11,7 +11,7 @@ const generateComment =(id) => {
   const avaNumb = getRandomNumber(1, 6);
   return {
     id,
-    avatar: `img/avatar-${addZero(avaNumb)}.svg`,
+    avatar: `img/avatar-${avaNumb}.svg`,
     message: getRandomArrayElement(MESSAGES),
     name: getRandomArrayElement(USER_NAMES),
   };
@@ -28,7 +28,7 @@ const generatePhoto = (id) => {
   const fotoNumb = getRandomNumber(1, 25);
   return {
     id,
-    url: `photos/${addZero(fotoNumb)}.jpg,`,
+    url: `photos/${fotoNumb}.jpg`,
     description: getRandomArrayElement(DESCRIPTIONS),
     likes: getRandomNumber(15, 250),
     comments: generateComments(),

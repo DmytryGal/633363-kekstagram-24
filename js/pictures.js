@@ -8,10 +8,10 @@ const renderPictures = (photos) => {
     const picturesElement = template.cloneNode(true);
     picturesElement.querySelector('.picture__img').src = url;
     picturesElement.querySelector('.picture__likes').textContent = likes;
-    picturesElement.querySelector('.picture__comments').textContent = comments;
+    picturesElement.querySelector('.picture__comments').textContent = comments.length;
     pictureFragment.appendChild(picturesElement);
   });
 
   picturesContainer.appendChild(pictureFragment);
 };
-export {renderPictures};
+export { renderPictures };

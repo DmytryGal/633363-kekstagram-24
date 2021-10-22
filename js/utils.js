@@ -11,12 +11,6 @@ const getRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-const addZero = (num) => {
-  if (num < 10) {
-    num = `0${num}`;
-  }
-  return num;
-};
 //Функция для проверки максимальной длины строки
 const getCompareStrings = (myString, resonString) => {
   if (myString.length === resonString || myString.length < resonString) {
@@ -27,4 +21,4 @@ const getCompareStrings = (myString, resonString) => {
   }
 };
 
-export{getRandomNumber, addZero, getCompareStrings};
+export{getRandomNumber, getCompareStrings};
