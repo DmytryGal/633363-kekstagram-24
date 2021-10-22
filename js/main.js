@@ -1,5 +1,6 @@
 import {generatePhotos} from './data.js';
-import './pictures.js';
+import {renderPictures} from './pictures.js';
+
 const publicPhotos = generatePhotos();
-// eslint-disable-next-line no-console
-console.log(publicPhotos);
+const photos = publicPhotos;
+renderPictures(photos);
