@@ -1,7 +1,6 @@
 const renderPictures = (photos) => {
   const picturesContainer = document.querySelector('.pictures');
-  const templateFragment = document.querySelector('#picture').content;
-  const template = templateFragment.querySelector('a');
+  const template = document.querySelector('#picture').content;
   const pictureFragment = document.createDocumentFragment();
 
   photos.forEach(({ url, likes, comments }) => {

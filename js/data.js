@@ -1,6 +1,7 @@
 import {getRandomNumber} from './utils.js';
 
 const PHOTOS_COUNT = 25;
+const COMMENTS_COUNT = 20;
 const DESCRIPTIONS = ['как-то так', 'ни то ни се', 'не понятно'];
 const MESSAGES = ['Всё отлично!', 'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.', 'Лица у людей на фотке перекошены, как будто их избивают.', 'Как можно было поймать такой неудачный момент?!'];
 const USER_NAMES = ['Иван', 'Лина', 'Потап', 'Ирэн', 'Михон', 'Кузмич', 'Димон'];
@@ -19,7 +20,8 @@ const generateComment =(id) => {
 
 const generateComments = () => {
   const comments = [];
-  for (let index = 1; index <= PHOTOS_COUNT; index++) {
+  const commentsCount = getRandomNumber(0, COMMENTS_COUNT);
+  for (let index = 1; index <= commentsCount; index++) {
     comments.push(generateComment(index));
   }
   return comments;

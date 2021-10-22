@@ -1,6 +1,5 @@
 import {generatePhotos} from './data.js';
 import {renderPictures} from './pictures.js';
 
-const publicPhotos = generatePhotos();
-const photos = publicPhotos;
+const photos = generatePhotos();
 renderPictures(photos);
