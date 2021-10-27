@@ -5,11 +5,11 @@ const picture = document.querySelector('.pictures');
 const closeBigPicture = document.querySelector('.big-picture__cancel');
 
 
-picture.addEventListener('click', () =>{
-
+picture.addEventListener('click', (evt) =>{
   bigPicture.classList.remove('hidden');
   document.body.classList.add('modal-open');
-
+  const bigImage = document.getElementById('chika');
+  bigImage.src = evt.target.src;
 });
 
 
