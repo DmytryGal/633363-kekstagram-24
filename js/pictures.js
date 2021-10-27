@@ -8,6 +8,7 @@ const renderPictures = (photos) => {
     picturesElement.querySelector('.picture__img').src = url;
     picturesElement.querySelector('.picture__likes').textContent = likes;
     picturesElement.querySelector('.picture__comments').textContent = comments.length;
+
     pictureFragment.appendChild(picturesElement);
   });
 
