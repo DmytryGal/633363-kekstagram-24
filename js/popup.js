@@ -31,20 +31,20 @@ const renderBigPicturePreview = (pictureData) => {
   commentsContainer.innerHTML = '';
 
   for (const comment of pictureData.comments) {
-    const li = document.createElement('li');
-    li.classList.add('social__comment');
+    const liElement = document.createElement('li');
+    liElement.classList.add('social__comment');
     const img = document.createElement('img');
     img.classList.add('social__picture');
     img.width=35;
     img.height=35;
     img.src = comment.avatar;
     img.alt = comment.name;
-    li.appendChild(img);
-    const p = document.createElement('p');
-    p.classList.add('social__text');
-    p.textContent = comment.message;
-    li.appendChild(p);
-    commentsContainer.appendChild(li);
+    liElement.appendChild(img);
+    const pElement = document.createElement('p');
+    pElement.classList.add('social__text');
+    pElement.textContent = comment.message;
+    liElement.appendChild(pElement);
+    commentsContainer.appendChild(liElement);
   }
 
   bigPicture.classList.remove('hidden');

@@ -1,4 +1,3 @@
-import './popup.js';
 import { generatePhotos } from './data.js';
 import { renderPictures } from './pictures.js';
 import {addOpenHandler} from './popup.js';
