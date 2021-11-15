@@ -64,10 +64,8 @@ const addOpenHandler = (picturesData) => {
   });
 };
 
-
 closeBigPicture.addEventListener('click', () =>{
   closeModal();
-
 });
 
 export {addOpenHandler};

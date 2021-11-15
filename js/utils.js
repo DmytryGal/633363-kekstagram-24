@@ -22,4 +22,5 @@ const getCompareStrings = (myString, resonString) => {
 };
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
+
 export{getRandomNumber, getCompareStrings, isEscapeKey};
