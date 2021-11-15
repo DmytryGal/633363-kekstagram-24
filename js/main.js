@@ -2,12 +2,12 @@ import { generatePhotos } from './data.js';
 import { renderPictures } from './pictures.js';
 import {addOpenHandler} from './popup.js';
 import { openModalEdit } from './forms.js';
-import  {hashTagsValid} from './hashtags.js';
-import { commentValidity } from './comments-upload.js';
+import  {addHashTagsValidation} from './hashtags.js';
+import { addCommentValidation } from './comments-upload.js';
 
 const photos = generatePhotos();
 renderPictures(photos);
 addOpenHandler(photos);
 openModalEdit();
-commentValidity();
-hashTagsValid();
+addCommentValidation();
+addHashTagsValidation();

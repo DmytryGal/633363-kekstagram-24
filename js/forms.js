@@ -1,14 +1,14 @@
 import {isEscapeKey} from './utils.js';
-const editForms = document.querySelector('.img-upload__overlay');
-const closeEditForms = document.querySelector('#upload-cancel');
-const imgUploadFile = document.querySelector('.img-upload__input ');
+const overlayElement = document.querySelector('.img-upload__overlay');
+const cancelButtonElement = document.querySelector('#upload-cancel');
+const imgUploadFileElement = document.querySelector('.img-upload__input ');
 
 
 let closeHandler = undefined;
 
 
 const closeModal = () =>{
-  editForms.classList.add('hidden');
+  overlayElement.classList.add('hidden');
   document.body.classList.remove('modal-open');
   document.removeEventListener('keydown', closeHandler);
 };
@@ -22,11 +22,11 @@ closeHandler = (evt) => {
   }
 };
 const openModalEdit = () =>{
-  imgUploadFile.addEventListener('input', ()=>{
-    editForms.classList.remove('hidden');
+  imgUploadFileElement.addEventListener('input', ()=>{
+    overlayElement.classList.remove('hidden');
     document.body.classList.add('modal-open');
     document.addEventListener('keydown', closeHandler);
-    closeEditForms.addEventListener('click', () =>{
+    cancelButtonElement.addEventListener('click', () =>{
       closeModal();
     });
   });

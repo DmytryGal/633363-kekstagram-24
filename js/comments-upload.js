@@ -1,8 +1,8 @@
-const MAX_COMMENT_LENGTH = 10;
+const MAX_COMMENT_LENGTH = 140;
 const commentUploadImg = document.querySelector('.text__description');
 const buttonSubmit = document.querySelector('.img-upload__submit');
 
-const commentValidity = () =>{
+const addCommentValidation = () =>{
   commentUploadImg.addEventListener('input', () =>{
     const commentLength = commentUploadImg.value.length;
     if(commentLength > MAX_COMMENT_LENGTH){
@@ -15,4 +15,4 @@ const commentValidity = () =>{
     commentUploadImg.reportValidity();
   });
 };
-export {commentValidity};
+export {addCommentValidation};

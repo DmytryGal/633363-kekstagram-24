@@ -3,44 +3,51 @@ const MIN_HASHTAGES_LENGTH = 2;
 const MAX_HASHTAGES_LENGTH = 20;
 const buttonSubmit = document.querySelector('.img-upload__submit');
 
-const hashTagsValid = () => {
+const addHashTagsValidation = () => {
   hashTagsInput.addEventListener('input', (evt) => {
     const hashtags = evt.target.value.toLowerCase().split(' ');
 
+    const errors = [];
+    if (new Set(hashtags).size !== hashtags.length) {
+      errors.push('ХэшТэги не должны повторяться');
+    }
 
     for (const hashTag of hashtags) {
-
-
       if (!hashTag.startsWith('#')) {
-        hashTagsInput.setCustomValidity('ХэшТэг должен начинаться с #');
-        buttonSubmit.disabled = true;
-      } else if (hashTag.startsWith('##')) {
-        hashTagsInput.setCustomValidity('Удалите второй символ #');
-        buttonSubmit.disabled = true;
-      } else if (hashTag.length < MIN_HASHTAGES_LENGTH) {
-        hashTagsInput.setCustomValidity(`Ещё ${MIN_HASHTAGES_LENGTH - hashTag.length} симв.`);
-        buttonSubmit.disabled = true;
-      } else if (hashTag.length > MAX_HASHTAGES_LENGTH) {
-        hashTagsInput.setCustomValidity(`Удалите лишние ${hashTag.length - MAX_HASHTAGES_LENGTH} симв.`);
-        buttonSubmit.disabled = true;
+        errors.push('ХэшТэг должен начинаться с #');
+      }
 
+      if (hashTag.startsWith('##')) {
+        errors.push('Удалите второй символ #');
       }
-      else if(!/^#[\w\dЁёА-я]+$/g.test(hashTag)) {
-        hashTagsInput.setCustomValidity('ХэшТэг не может содержать спецсимволы');
-        buttonSubmit.disabled = true;
-      }
-      else {
-        hashTagsInput.setCustomValidity('');
 
-        buttonSubmit.disabled = false;
+      if (hashTag.length < MIN_HASHTAGES_LENGTH) {
+        errors.push(`Ещё ${MIN_HASHTAGES_LENGTH - hashTag.length} симв.`);
       }
-      hashTagsInput.reportValidity();
+
+      if (hashTag.length > MAX_HASHTAGES_LENGTH) {
+        errors.push(`Удалите лишние ${hashTag.length - MAX_HASHTAGES_LENGTH} симв.`);
+      }
+
+      if (errors.length === 0 && !/^#[\w\dЁёА-я]+$/g.test(hashTag)) {
+        errors.push('ХэшТэг не может содержать спецсимволы');
+      }
+
+      if (errors.length > 0) {
+        break;
+      }
     }
-    if (new Set(hashtags).size !== hashtags.length){
-      hashTagsInput.setCustomValidity('ХэшТэги не должны повторяться');
+
+    if (errors.length > 0) {
+      hashTagsInput.setCustomValidity(errors.join('\r\n'));
       buttonSubmit.disabled = true;
+    } else {
+      hashTagsInput.setCustomValidity('');
+      buttonSubmit.disabled = false;
     }
+
+    hashTagsInput.reportValidity();
   });
 };
 
-export {hashTagsValid};
+export { addHashTagsValidation };
