@@ -22,7 +22,7 @@ closeHandler = (evt) => {
   }
 };
 const openModalEdit = () =>{
-  imgUploadFile.addEventListener('click', ()=>{
+  imgUploadFile.addEventListener('input', ()=>{
     editForms.classList.remove('hidden');
     document.body.classList.add('modal-open');
     document.addEventListener('keydown', closeHandler);
