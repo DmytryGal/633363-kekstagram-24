@@ -14,7 +14,7 @@ const closeModal = () =>{
 };
 
 closeHandler = (evt) => {
-  if (isEscapeKey(evt)) {
+  if (isEscapeKey(evt)&&evt.target.tagName!=='INPUT'&&evt.target.tagName!=='TEXTAREA') {
 
     evt.preventDefault();
     closeModal();
